@@ -11,6 +11,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.image_searcher_gouijane.R;
 
+/**
+ * @author Soulaymane GOUIJANE
+ */
+
 public class OptionsFragment extends Fragment {
 
     private Button searchImageButton;
@@ -66,11 +70,4 @@ public class OptionsFragment extends Fragment {
 
         return view;
     }
-//    public void navigateToFragment(Fragment fragment) {
-//        System.out.println("from navigate");
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.container, fragment)
-//                .addToBackStack(null)
-//                .commit();
-//    }
 }

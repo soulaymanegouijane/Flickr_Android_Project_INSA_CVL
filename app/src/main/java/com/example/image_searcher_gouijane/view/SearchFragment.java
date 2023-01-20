@@ -35,7 +35,7 @@ public class SearchFragment extends Fragment {
 
     /**
      * This function performs the search and send the results to the adapter in order to update the listView with results
-     * @param searchTerm
+     * @param searchTerm this is the string searched by the user
      */
     public void performSearch(String searchTerm) {
         new FlickrImages(getView().findViewById(R.id.listview), getContext()).execute(searchTerm);

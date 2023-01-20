@@ -35,6 +35,15 @@
             app:destination="@id/imageDetailsFragment" />
     </fragment>
     <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.image_searcher_gouijane.view.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_navigation_search_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/imageDetailsFragment"
         android:name="com.example.image_searcher_gouijane.view.ImageDetailsFragment"
         android:label="Image details"

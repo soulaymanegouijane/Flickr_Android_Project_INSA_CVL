@@ -1,5 +1,6 @@
 package com.example.image_searcher_gouijane.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,11 @@ import com.example.image_searcher_gouijane.model.ImageModel;
 
 /**
  * @author Soulaymane GOUIJANE
+ */
+
+/**
+ * I created this class in order to perform actions in the Database
+ * Below you can find all actions that used in this application such as insert, delete, fetchData ...
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -80,6 +86,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }else{
             return;
         }
+    }
+    public void insertImageInDB(ImageModel image){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FavoriteContract.FavoriteEntry.COLUMN_IMAGE_ID,image.getImageId());
+        contentValues.put(FavoriteContract.FavoriteEntry.COLUMN_IMAGE_URL, image.getImageUrl());
+        contentValues.put(FavoriteContract.FavoriteEntry.COLUMN_IMAGE_TITLE, image.getImageTitle());
+        long newRowId = db.insert(FavoriteContract.FavoriteEntry.TABLE_NAME, null, contentValues);
     }
 
 }
