@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.image_searcher_gouijane.R;
 import com.example.image_searcher_gouijane.db.DatabaseHelper;
@@ -14,9 +16,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * @author Soulaymane GOUIJANE
+ */
+
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder> {
     private List<ImageModel> favoritedPhotos;
-
 
     public FavoritesAdapter(List<ImageModel> favoritedPhotos) {
         this.favoritedPhotos = favoritedPhotos;
@@ -43,21 +48,23 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
     static class FavoritesViewHolder extends RecyclerView.ViewHolder {
         private ImageView photoImageView;
         private ImageButton heartButton;
+        private TextView imageTitle;
         private List<ImageModel> favoritedPhotos;
         private FavoritesAdapter adapter;
 
         public FavoritesViewHolder(@NonNull View itemView,List<ImageModel> favouritePhotos, FavoritesAdapter adapter) {
             super(itemView);
             photoImageView = itemView.findViewById(R.id.favouriteImageView);
-
-            heartButton = itemView.findViewById(R.id.favourite_button);
-            heartButton.setImageResource(R.drawable.ic_favourite);
             this.adapter = adapter;
             this.favoritedPhotos = favouritePhotos;
         }
 
         public void bind(final ImageModel photo) {
+                imageTitle = itemView.findViewById(R.id.title);
                 Picasso.get().load(photo.getImageUrl()).into(photoImageView);
+                imageTitle.setText(photo.getImageTitle());
+                heartButton = itemView.findViewById(R.id.favourite_button);
+                heartButton.setImageResource(R.drawable.ic_favourite);
                 heartButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

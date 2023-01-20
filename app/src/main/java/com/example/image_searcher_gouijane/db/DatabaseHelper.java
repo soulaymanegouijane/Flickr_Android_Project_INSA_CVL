@@ -4,6 +4,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ImageButton;
+
+import com.example.image_searcher_gouijane.model.ImageModel;
+
+/**
+ * @author Soulaymane GOUIJANE
+ */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "favorites.db";
@@ -36,13 +43,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor fetchData(String shereSelection, String[] whereSelectionArgs){
+    public Cursor fetchData(String whereSelection, String[] whereSelectionArgs){
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.query(
                 FavoriteContract.FavoriteEntry.TABLE_NAME,
                 PROJECTION,
-                shereSelection,
+                whereSelection,
                 whereSelectionArgs,
                 null,
                 null,
@@ -75,4 +81,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return;
         }
     }
+
 }

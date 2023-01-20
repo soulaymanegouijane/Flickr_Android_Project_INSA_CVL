@@ -2,9 +2,11 @@ package com.example.image_searcher_gouijane.db;
 
 import android.provider.BaseColumns;
 
+/**
+ * @author Soulaymane GOUIJANE
+ */
+
 public final class FavoriteContract {
-    // To prevent someone from accidentally instantiating the contract class,
-    // make the constructor private.
     private FavoriteContract() {}
 
     public static class FavoriteEntry implements BaseColumns {
