@@ -1,4 +1,4 @@
-package com.example.image_searcher_gouijane.view;
+package com.example.image_searcher_gouijane.utils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,9 @@ import com.example.image_searcher_gouijane.model.ImageModel;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * this class is created in order to avoid the redundancy of the code, it provides functions to handle the clicks of the favourite buton
+ */
 public class FavouritesHandler{
     private ImageButton favouriteButton;
     private Context context;

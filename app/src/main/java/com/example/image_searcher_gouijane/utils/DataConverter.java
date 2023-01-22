@@ -18,9 +18,14 @@ import java.util.List;
  */
 
 /**
- * I created this class in order to simplify DATA Converting
+ * I created this abstract class in order to simplify DATA Converting
  */
 public abstract class DataConverter {
+    /**
+     * this function is used to convert the cursor of the database to a List of  ImageModel
+     * @param cursor this is the cursor that the Query of SQLLite returns
+     * @return a list of ImageModels
+     */
     public static List<ImageModel> convertCursorToModelList(@NotNull Cursor cursor) {
         List<ImageModel> images = new ArrayList<>();
         if(cursor != null && cursor.moveToFirst()) {
@@ -36,6 +41,13 @@ public abstract class DataConverter {
         }
         return images;
     }
+
+    /**
+     * This function converts the JSONArray to a list of ImageModel
+     * @param jsonImages those represents the images that we get from the Flickr API
+     * @return a List of ImageModels
+     * @throws JSONException
+     */
     public static List<ImageModel> convertJSONArrayToList(JSONArray jsonImages) throws JSONException {
         List<ImageModel> images = new ArrayList<>();
         if(jsonImages==null){

@@ -15,6 +15,10 @@ import com.example.image_searcher_gouijane.R;
 
 import java.util.zip.Inflater;
 
+/**
+ * this class initializes the settings fragment and sets onCheckListener to the switch button of dark/night mode
+ * in this class wi used sharedPreferences to store data (which mode is enabled)
+ */
 public class SettingsFragment extends Fragment {
     private View settingsView;
     private SharedPreferences sharedPreferences;

@@ -12,6 +12,9 @@ import com.example.image_searcher_gouijane.R;
 
 import java.util.zip.Inflater;
 
+/**
+ * this class initializes the splash screen of the application that is displayed on the application startup
+ */
 public class SplashScreenActivity extends AppCompatActivity {
     Handler handler;
 @Override

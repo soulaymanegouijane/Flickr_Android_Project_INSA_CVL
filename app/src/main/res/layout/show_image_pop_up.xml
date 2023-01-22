@@ -57,18 +57,10 @@
             android:orientation="horizontal"
             android:textAlignment="center">
             <ImageButton
-                android:id="@+id/fav_pop_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:textAlignment="center"
-                android:background="?android:popupBackground"
-                android:src="@drawable/ic_unfavourite"/>
-            <ImageButton
                 android:id="@+id/download_pop_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="@integer/material_motion_duration_long_2"
                 android:textAlignment="center"
                 android:background="?android:popupBackground"
                 android:src="@drawable/ic_download"/>

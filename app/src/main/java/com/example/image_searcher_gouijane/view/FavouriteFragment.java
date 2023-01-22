@@ -19,6 +19,10 @@ import com.example.image_searcher_gouijane.utils.DataConverter;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * This class initializes the Favourite fragment and fetches data from our Database and send it to the adapter
+ * in order to display them
+ */
 public class FavouriteFragment extends Fragment {
     private View view;
     private FavoritesAdapter adapter;
@@ -26,10 +30,8 @@ public class FavouriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.favourite_fragment, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.listviewfavourites);
-        DatabaseHelper mDbHelper = new DatabaseHelper(getContext());
-        Cursor cursor = mDbHelper.fetchData(null, null);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new FavoritesAdapter(DataConverter.convertCursorToModelList(cursor));
+        adapter = new FavoritesAdapter();
         recyclerView.setAdapter(adapter);
         return view;
     }

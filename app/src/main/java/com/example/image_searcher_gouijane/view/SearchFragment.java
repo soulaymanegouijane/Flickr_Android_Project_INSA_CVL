@@ -11,6 +11,9 @@ import com.example.image_searcher_gouijane.R;
 
 import java.util.Objects;
 
+/**
+ * this class initializes the search fragment and sets onTextListner to our search bar in order to get the text and perform searches
+ */
 public class SearchFragment extends Fragment {
     private SearchView searchView;
 

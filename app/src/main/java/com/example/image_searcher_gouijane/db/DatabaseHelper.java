@@ -49,6 +49,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * this function fetches the data from the database
+     * @param whereSelection this is an optional argument (it may be null) it represents the where conditions that we want to perform
+     * @param whereSelectionArgs this is also an optional argument it represents the arguments that we pass to the where condition above
+     * @return returns a cursor of results that will be conveted later to a List of Image Models
+     */
     public Cursor fetchData(String whereSelection, String[] whereSelectionArgs){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(
@@ -62,6 +68,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    /**
+     * this function checks if an image exists in the database using its ID
+     * @param imageId this is the id of the image that the function checks its existence
+     * @return it returns a boolean (false --> image doesn't exist || true --> image exists)
+     */
     public Boolean checkPhotoExistenceById(String imageId) {
         SQLiteDatabase db = this.getReadableDatabase();
         String selection = FavoriteContract.FavoriteEntry.COLUMN_IMAGE_ID + " = ?";
@@ -77,6 +88,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor.getCount() != 0;
     }
 
+    /**
+     * this function checks the existence of an image using its ID and if the image exists, it deletes it
+     * @param imageId this is the ID of the image that we want to delete
+     */
     public void deleteIfExistsById(String imageId) {
         if (checkPhotoExistenceById(imageId)) {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -87,6 +102,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return;
         }
     }
+
+    /**
+     * this fucntion inserts a given Image(ImageModel) into database
+     * @param image this is the ImageModel that the function inserts
+     */
     public void insertImageInDB(ImageModel image){
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();

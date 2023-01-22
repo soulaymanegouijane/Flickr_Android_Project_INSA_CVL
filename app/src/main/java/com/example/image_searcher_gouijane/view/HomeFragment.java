@@ -17,6 +17,9 @@ import com.example.image_searcher_gouijane.R;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * This class initialiszes the Home fragment and it sets listeners to our categories buttons
+ */
 public class HomeFragment extends Fragment {
     View homeView;
     private ImageView catsCategoryBtn;

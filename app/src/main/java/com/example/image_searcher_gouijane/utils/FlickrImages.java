@@ -20,6 +20,10 @@ import java.util.List;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * this class is created to handle the fetch of the Flickr API and it extends AsyncTask in order to perform tasks in background
+ * and returns results that we manipulate with the onPostExecute function
+ */
 public class FlickrImages extends AsyncTask<String, Void, JSONArray> {
     private static final String API_KEY = "38b58d4d8a0bc07cf91a7a2c0dfdbb44";
     private static final String ENDPOINT = "https://www.flickr.com/services/rest/";
@@ -49,6 +53,14 @@ public class FlickrImages extends AsyncTask<String, Void, JSONArray> {
         }
     }
 
+    /**
+     * this function is used to fetch data from the API
+     * @param searchMethod
+     * @param query
+     * @return the JSONObject of the results
+     * @throws IOException
+     * @throws JSONException
+     */
     private JSONObject fetchImagesFromAPI(String searchMethod, String query) throws IOException, JSONException {
         String url = ENDPOINT + searchMethod + API_KEY + "&format=json&nojsoncallback=1"+(searchMethod.equals(SEARCH_METHOD)? "&text=" + query : "");
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();

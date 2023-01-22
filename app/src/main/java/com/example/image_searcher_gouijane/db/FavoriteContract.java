@@ -6,6 +6,9 @@ import android.provider.BaseColumns;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * this class represents the shape of the table in the Database
+ */
 public final class FavoriteContract {
     private FavoriteContract() {}
 

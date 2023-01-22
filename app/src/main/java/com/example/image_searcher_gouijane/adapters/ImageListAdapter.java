@@ -1,7 +1,6 @@
 package com.example.image_searcher_gouijane.adapters;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,17 @@ import com.example.image_searcher_gouijane.R;
 import com.example.image_searcher_gouijane.db.DatabaseHelper;
 import com.example.image_searcher_gouijane.model.ImageModel;
 import com.example.image_searcher_gouijane.utils.ImageDownloadManager;
-import com.example.image_searcher_gouijane.view.FavouritesHandler;
+import com.example.image_searcher_gouijane.utils.FavouritesHandler;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
 /**
  * @author Soulaymane GOUIJANE
  */
-
+/**
+ * this adapter is created to get the images from the Search Fragment and create for each image an image item with various informations
+ * this adapter extends the BaseAdapter because it's used to set and update the content of a ListView
+ */
 public class ImageListAdapter extends BaseAdapter {
     private List<ImageModel> images;
     private LayoutInflater inflater;

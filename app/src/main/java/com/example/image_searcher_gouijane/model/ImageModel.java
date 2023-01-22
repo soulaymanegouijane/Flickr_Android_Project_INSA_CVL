@@ -7,6 +7,9 @@ import org.json.JSONObject;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * this class is a sort of DTO, i use it to transfer and manipulate data easily between objects
+ */
 public class ImageModel {
     private String dbId;
     private String imageId;
@@ -17,6 +20,11 @@ public class ImageModel {
     private String imageSecret;
     private Boolean isFavourite = false;
 
+    /**
+     * this constructor creates an Image Model from JSONObject that the flickr API returns
+     * @param jsonObject this is the JSONObject that the API returns
+     * @throws JSONException
+     */
     public ImageModel(JSONObject jsonObject) throws JSONException {
         this.imageId = jsonObject.getString("id");
         this.imageTitle = jsonObject.getString("title");

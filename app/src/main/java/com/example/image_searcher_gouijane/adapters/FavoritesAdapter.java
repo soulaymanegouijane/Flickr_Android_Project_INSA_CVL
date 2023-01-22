@@ -23,11 +23,21 @@ import java.util.List;
  * @author Soulaymane GOUIJANE
  */
 
+/**
+ * this adapter is created to get the images from the Favourite Fragment and create for each image an image item with various informations
+ * this adapter extends the RecycleView.Adapter because it's used to set and update instantly the content of a RecycleView
+ */
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder> {
     private List<ImageModel> favoritedPhotos;
 
+    /**
+     * Constructor
+     * @param favoritedPhotos those are the images that we fetch from the SQLlite Database
+     */
     public FavoritesAdapter(List<ImageModel> favoritedPhotos) {
         this.favoritedPhotos = favoritedPhotos;
+    }
+    public FavoritesAdapter() {
     }
 
     @NonNull
@@ -65,6 +75,10 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
             myDialog = new Dialog(itemView.getContext());
         }
 
+        /**
+         * this function is used to set the view of each one of the images
+         * @param photo
+         */
         public void bind(final ImageModel photo) {
                 imageTitle = itemView.findViewById(R.id.title);
                 Picasso.get().load(photo.getImageUrl()).into(photoImageView);

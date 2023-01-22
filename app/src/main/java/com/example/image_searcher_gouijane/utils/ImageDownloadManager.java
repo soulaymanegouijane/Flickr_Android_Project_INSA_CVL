@@ -1,13 +1,12 @@
 package com.example.image_searcher_gouijane.utils;
 
-import android.annotation.SuppressLint;
+
 import android.app.DownloadManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.os.Environment;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,6 +14,14 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * @author Soulaymane GOUIJANE
+ */
+
+/**
+ * I used this class to download the image from its URL and it extends AsyncTask because it performs actions using the network
+ * so we extend this class in order to allow it to execute the fetch in background
+ */
 public class ImageDownloadManager extends AsyncTask<String, Void, Bitmap> {
     private Context context;
     String url;
@@ -42,6 +49,10 @@ public class ImageDownloadManager extends AsyncTask<String, Void, Bitmap> {
         }
     }
 
+    /**
+     * after the data has been fetched we use the onPostExecute method to write data to our local storage
+     * @param result
+     */
     @Override
     protected void onPostExecute(Bitmap result) {
         if (result != null) {
