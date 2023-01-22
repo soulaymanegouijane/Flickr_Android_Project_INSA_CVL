@@ -1,6 +1,7 @@
 package com.example.image_searcher_gouijane.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.example.image_searcher_gouijane.R;
 import com.example.image_searcher_gouijane.db.DatabaseHelper;
 import com.example.image_searcher_gouijane.model.ImageModel;
+import com.example.image_searcher_gouijane.utils.ImageDownloadManager;
 import com.example.image_searcher_gouijane.view.FavouritesHandler;
 import com.squareup.picasso.Picasso;
 import java.util.List;
@@ -23,6 +25,7 @@ public class ImageListAdapter extends BaseAdapter {
     private List<ImageModel> images;
     private LayoutInflater inflater;
     private Context context;
+    private ImageButton downloadButton;
     private ImageButton favouriteButton;
     private  TextView imageTitle;
 
@@ -63,6 +66,9 @@ public class ImageListAdapter extends BaseAdapter {
         }
             imageTitle = convertView.findViewById(R.id.title);
             favouriteButton = convertView.findViewById(R.id.favourite_button);
+            downloadButton = convertView.findViewById(R.id.download_button);
+            holder.imageView.setTag(image.getImageUrl());
+            holder.imageView.setTag(image);
             Picasso.get().load(image.getImageUrl()).into(holder.imageView);
             imageTitle.setText(image.getImageTitle());
             new FavouritesHandler(favouriteButton, context).handleFavouriteCheckImage(image);
@@ -73,6 +79,12 @@ public class ImageListAdapter extends BaseAdapter {
                     notifyDataSetChanged();
                 }
             });
+        downloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new ImageDownloadManager(view.getContext(), image.getImageTitle(), image.getImageUrl()).execute(image.getImageUrl());
+            }
+        });
         return convertView;
     }
 

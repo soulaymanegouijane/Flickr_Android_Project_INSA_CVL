@@ -15,7 +15,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:iconifiedByDefault="false"
-                        android:queryHint="Search"
+                        app:defaultQueryHint="Search For the Image You Want"
+                        android:layout_marginTop="10dp"
                         app:searchIcon="@drawable/ic_search"
                         android:layout_gravity="right" />
 

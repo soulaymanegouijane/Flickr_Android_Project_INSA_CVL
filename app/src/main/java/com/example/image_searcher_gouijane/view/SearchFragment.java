@@ -9,8 +9,19 @@ import androidx.fragment.app.Fragment;
 import com.example.image_searcher_gouijane.utils.FlickrImages;
 import com.example.image_searcher_gouijane.R;
 
+import java.util.Objects;
+
 public class SearchFragment extends Fragment {
     private SearchView searchView;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Bundle bundle = getArguments();
+        performSearch(Objects.isNull(bundle)?
+                "":
+                bundle.getString("query"));
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
